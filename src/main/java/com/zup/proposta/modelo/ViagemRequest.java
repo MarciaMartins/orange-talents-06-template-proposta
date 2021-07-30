@@ -6,6 +6,8 @@ import java.time.format.DateTimeFormatter;
 
 import javax.validation.constraints.NotBlank;
 
+import org.springframework.cloud.openfeign.FeignClient;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sun.istack.NotNull;
@@ -13,13 +15,13 @@ import com.zup.proposta.feignCliente.dto.ViagemFeign;
 
 public class ViagemRequest {
 	@NotBlank
-	// @JsonProperty("")
+
 	private String destino;
 
 	@NotNull
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private String validoAte;
-
+	@NotBlank
 	public String getDestino() {
 		return destino;
 	}

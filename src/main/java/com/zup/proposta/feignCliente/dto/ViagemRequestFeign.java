@@ -4,8 +4,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ViagemRequestFeign {
+import javax.validation.constraints.NotBlank;
 
+public class ViagemRequestFeign {
+	@NotBlank
 	private String destino;
 	private String validoAte;
 
