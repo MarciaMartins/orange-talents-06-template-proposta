@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.zup.proposta.feignCliente.dto.CartaoBloqueio;
 import com.zup.proposta.feignCliente.dto.CartaoBloqueioResponse;
+import com.zup.proposta.feignCliente.dto.CarteiraResponseFeign;
+import com.zup.proposta.feignCliente.dto.CarteiraResquestFeign;
 import com.zup.proposta.feignCliente.dto.ViagemFeign;
 import com.zup.proposta.feignCliente.dto.ViagemResponseFeign;
 import com.zup.proposta.response.CartaoResponseNumero;
@@ -23,4 +25,7 @@ public interface AccountsController {
 
 	@RequestMapping(method = RequestMethod.POST, value = "/cartoes/{id}/avisos")
 	ViagemResponseFeign postAvisoViagem(@PathVariable("id") String id, @RequestBody ViagemFeign viagemFeign);
+	
+	@RequestMapping(method = RequestMethod.POST, value = "/cartoes/{idCartao}/carteiras")
+	CarteiraResponseFeign postCarteira(@PathVariable("idCartao") String id, @RequestBody CarteiraResquestFeign carteiraFeign);
 }
