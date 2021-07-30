@@ -11,22 +11,19 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-	
-	@Override
-    protected void configure(HttpSecurity http) throws Exception {
 
-        http.authorizeRequests(authorizeRequests -> authorizeRequests
-                .mvcMatchers("**/actuator/**").permitAll()
-                .mvcMatchers(HttpMethod.POST, "/biometrias/**").hasAuthority("SCOPE_proposta")
-                .mvcMatchers(HttpMethod.POST, "/propostas/**").hasAuthority("SCOPE_proposta")
-                .mvcMatchers(HttpMethod.GET, "/propostas/**").hasAuthority("SCOPE_proposta")
-        )
-                .cors()
-                .and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .csrf().disable()
-                .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
-    }
-	
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+
+		http.authorizeRequests(authorize -> authorize.antMatchers(HttpMethod.POST, "/proposals")
+				.hasAuthority("SCOPE_proposal:write").antMatchers(HttpMethod.GET, "/proposals/**")
+				.hasAuthority("SCOPE_proposal:read").antMatchers("/cards/**").hasAuthority("SCOPE_card:write")
+				.antMatchers(HttpMethod.GET, "/actuator/prometheus").permitAll()
+				.antMatchers(HttpMethod.GET, "/actuator/**").hasAuthority("SCOPE_actuator:read").anyRequest()
+				.authenticated())
+		.cors().and().sessionManagement()
+				.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().csrf().disable()
+				.oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
+	}
+
 }
