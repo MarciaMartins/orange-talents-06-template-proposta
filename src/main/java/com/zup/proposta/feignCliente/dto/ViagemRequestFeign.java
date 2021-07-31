@@ -10,7 +10,9 @@ public class ViagemRequestFeign {
 	@NotBlank
 	private String destino;
 	private String validoAte;
-
+ public ViagemRequestFeign() {
+	// TODO Auto-generated constructor stub
+}
 	
 	public String getDestino() {
 		return destino;

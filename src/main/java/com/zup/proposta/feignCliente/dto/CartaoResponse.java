@@ -39,6 +39,8 @@ public class CartaoResponse {
 		this.idProposta = idProposta;
 		this.resultadoSolicitacao = resultadoSolicitacao;
 	}
-	
+	public CartaoResponse() {
+		// TODO Auto-generated constructor stub
+	}
 	
 }

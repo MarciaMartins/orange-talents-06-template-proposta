@@ -13,7 +13,7 @@ import com.zup.proposta.repository.PropostaRepository;
 import com.zup.proposta.response.CartaoResponseNumero;
 
 @Component
-public class AtualizaProposta {
+public class AtualizaPropostaComponent {
 
 	@Autowired
 	private CartaoController cartaoController;
@@ -21,7 +21,7 @@ public class AtualizaProposta {
 	@Autowired
 	private PropostaRepository propostaRepository;
 
-	//@Scheduled(fixedDelay = 50000)
+	@Scheduled(fixedDelay = 50000)
 	private void AtualizaPropostaDadosCartao() {
 		List<Proposta> listaPropostasElegiveis = propostaRepository.findPropostaByElegivelAndCartao("ELEGIVEL", null);
 		if (!listaPropostasElegiveis.isEmpty()) {

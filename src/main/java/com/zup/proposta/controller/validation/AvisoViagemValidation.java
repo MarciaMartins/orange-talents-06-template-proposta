@@ -1,7 +1,5 @@
 package com.zup.proposta.controller.validation;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -10,8 +8,8 @@ import com.zup.proposta.feignCliente.dto.ViagemFeign;
 import com.zup.proposta.feignCliente.dto.ViagemResponseFeign;
 import com.zup.proposta.modelo.Aviso;
 import com.zup.proposta.modelo.Proposta;
-import com.zup.proposta.modelo.ViagemRequest;
 import com.zup.proposta.repository.AvisoRepository;
+import com.zup.proposta.request.ViagemRequest;
 
 @Component
 public class AvisoViagemValidation {

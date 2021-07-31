@@ -20,7 +20,7 @@ import com.zup.proposta.controller.validation.AvisoViagemValidation;
 import com.zup.proposta.controller.validation.RecuperaPropostaBiometria;
 import com.zup.proposta.modelo.Aviso;
 import com.zup.proposta.modelo.Proposta;
-import com.zup.proposta.modelo.ViagemRequest;
+import com.zup.proposta.request.ViagemRequest;
 
 @RestController
 @RequestMapping("/viagens")

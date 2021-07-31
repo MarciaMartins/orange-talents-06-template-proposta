@@ -8,4 +8,7 @@ public class ViagemResponseFeign {
 		return resultado;
 	}
 
+	public ViagemResponseFeign() {
+		// TODO Auto-generated constructor stub
+	}
 }

@@ -10,6 +10,9 @@ public class CarteiraResponseFeign {
 		this.resultado = resultado;
 		this.id = id;
 	}
+	public CarteiraResponseFeign() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public String getId() {
 		return id;

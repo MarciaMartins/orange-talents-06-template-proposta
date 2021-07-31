@@ -13,5 +13,7 @@ public class ViagemResponse {
 	}
 	
 	
-
+public ViagemResponse() {
+	// TODO Auto-generated constructor stub
+}
 }

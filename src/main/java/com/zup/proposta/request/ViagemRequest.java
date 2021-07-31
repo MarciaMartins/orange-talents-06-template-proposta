@@ -1,12 +1,10 @@
-package com.zup.proposta.modelo;
+package com.zup.proposta.request;
 
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import javax.validation.constraints.NotBlank;
-
-import org.springframework.cloud.openfeign.FeignClient;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;

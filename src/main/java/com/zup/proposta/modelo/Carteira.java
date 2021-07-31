@@ -2,7 +2,6 @@ package com.zup.proposta.modelo;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,10 +17,15 @@ public class Carteira {
 	private String resultado;
 	
 	private String idCarteira;
+	
 	@OneToOne
 	@JoinColumn(name = "codigo_proposta")
 	private Proposta proposta;
 	private LocalDateTime criacao;
+	
+	public Carteira() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public Carteira(String resultado, String idCarteira, Proposta proposta) {
 		super();

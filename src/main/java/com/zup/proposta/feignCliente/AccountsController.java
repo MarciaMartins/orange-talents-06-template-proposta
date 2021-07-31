@@ -25,7 +25,7 @@ public interface AccountsController {
 
 	@RequestMapping(method = RequestMethod.POST, value = "/cartoes/{id}/avisos")
 	ViagemResponseFeign postAvisoViagem(@PathVariable("id") String id, @RequestBody ViagemFeign viagemFeign);
-	
-	@RequestMapping(method = RequestMethod.POST, value = "/cartoes/{idCartao}/carteiras")
-	CarteiraResponseFeign postCarteira(@PathVariable("idCartao") String id, @RequestBody CarteiraResquestFeign carteiraFeign);
+
+	@RequestMapping(method = RequestMethod.POST, value = "/cartoes/{id}/carteiras")
+	CarteiraResponseFeign postCarteira(@PathVariable("id") String id, @RequestBody CarteiraResquestFeign carteiraFeign);
 }

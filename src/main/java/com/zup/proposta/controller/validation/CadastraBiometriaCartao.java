@@ -12,7 +12,7 @@ import com.zup.proposta.request.BiometriaRequest;
 @Component
 public class CadastraBiometriaCartao {
 
-	@Autowired
+	@Autowired(required=true)
 	private BiometriaRepository biometriaRepository;
 
 	public Biometria cadastraBiometria(BiometriaRequest request, Proposta proposta) {

@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.zup.proposta.controller.validation.RecuperaPropostaBiometria;
-import com.zup.proposta.controller.validation.ValidaCarteira;
 import com.zup.proposta.feignCliente.AccountsController;
 import com.zup.proposta.feignCliente.dto.CarteiraResponseFeign;
 import com.zup.proposta.feignCliente.dto.CarteiraResquestFeign;
@@ -34,9 +33,6 @@ public class CarteiraController {
 
 	@Autowired
 	private RecuperaPropostaBiometria recuperaPropostaBiometria;
-
-	@Autowired
-	private ValidaCarteira validaCarteira;
 
 	@Autowired
 	private AccountsController accountsController;

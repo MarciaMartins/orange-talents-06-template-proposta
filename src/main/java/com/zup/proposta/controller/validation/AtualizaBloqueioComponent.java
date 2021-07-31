@@ -13,12 +13,12 @@ import com.zup.proposta.modelo.Proposta;
 import com.zup.proposta.repository.BloqueioRepository;
 
 @Component
-public class AtualizaBloqueio {
+public class AtualizaBloqueioComponent {
 	@Autowired
 	private CartaoController cartaoController;
 	
 	@Autowired
-	private AtualizaProposta atualizaProposta;
+	private AtualizaPropostaComponent atualizaProposta;
 	
 	@Autowired
 	private BloqueioRepository bloqueiRepository;
@@ -36,7 +36,7 @@ public class AtualizaBloqueio {
 		List<Bloqueio> bloqueioProposta = new ArrayList<>();
 		List<Bloqueio> bloqueioRecuperado = bloqueiRepository.findAll();
 		for (Bloqueio bloqueio : bloqueioRecuperado) {
-			if(bloqueio.getProposta().equals(proposta.getId())) {
+			if(bloqueio.getProposta().equals(proposta)) {
 				bloqueioProposta.add(bloqueio);
 			}
 		}

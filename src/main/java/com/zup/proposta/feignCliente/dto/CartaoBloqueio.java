@@ -6,6 +6,7 @@ public class CartaoBloqueio {
 	
 	@NotBlank
 	private String sistemaResponsavel;
+
 	
 	public String getSistemaResponsavel() {
 		return sistemaResponsavel;

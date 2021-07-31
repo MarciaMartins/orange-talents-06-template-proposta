@@ -13,7 +13,6 @@ import com.zup.proposta.feignCliente.dto.CartaoBloqueio;
 import com.zup.proposta.feignCliente.dto.CartaoBloqueioResponse;
 import com.zup.proposta.feignCliente.dto.CartaoResponse;
 import com.zup.proposta.feignCliente.dto.CartaoSolicitacao;
-import com.zup.proposta.modelo.ViagemRequest;
 import com.zup.proposta.response.CartaoResponseNumero;
 
 import feign.FeignException;
@@ -22,10 +21,10 @@ import feign.FeignException;
 public class CartaoController {
 
 	@Autowired
-	CartoesClient cartaoCliente;
-
+	private CartoesClient cartaoCliente;
+	
 	@Autowired
-	AccountsController accountsController;
+	private AccountsController accountsController;
 
 	private String statusDevolutiva;
 
@@ -44,9 +43,8 @@ public class CartaoController {
 	public CartaoResponseNumero recuperaNumeroCartao(@PathVariable String idProposta) {
 		CartaoResponseNumero numeroCartao = accountsController.getNumeroCartao(idProposta);
 		return numeroCartao;
-
 	}
-	
+
 	@PostMapping("/{idCartao}")
 	public String recuperaStatusBloqueio(@PathVariable String idCartao, @RequestBody CartaoBloqueio bloqueio) {
 		try {
@@ -58,7 +56,5 @@ public class CartaoController {
 		return statusDevolutiva;
 
 	}
-	
-	
 
 }

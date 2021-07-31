@@ -4,7 +4,9 @@ public class CartaoSolicitacao {
 	private String documento;
 	private String nome;
 	private String idProposta;
-	
+	 public CartaoSolicitacao() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public String getDocumento() {
 		return documento;

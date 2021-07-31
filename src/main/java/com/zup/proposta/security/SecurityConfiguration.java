@@ -15,12 +15,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.authorizeRequests(authorize -> authorize.antMatchers(HttpMethod.POST, "/proposals")
-				.hasAuthority("SCOPE_proposal:write").antMatchers(HttpMethod.GET, "/proposals/**")
-				.hasAuthority("SCOPE_proposal:read").antMatchers("/cards/**").hasAuthority("SCOPE_card:write")
-				.antMatchers(HttpMethod.GET, "/actuator/prometheus").permitAll()
-				.antMatchers(HttpMethod.GET, "/actuator/**").hasAuthority("SCOPE_actuator:read").anyRequest()
-				.authenticated())
+		http.authorizeRequests(authorizeRequests -> authorizeRequests
+                .mvcMatchers("**/actuator/**").permitAll()
+                .mvcMatchers(HttpMethod.GET, "/cartoes/**").permitAll()
+                .mvcMatchers(HttpMethod.GET, "/cartoes/**").hasAuthority("SCOPE_proposta")
+                .mvcMatchers(HttpMethod.POST, "/biometrias/**").hasAuthority("SCOPE_proposta")
+                .mvcMatchers(HttpMethod.POST, "/propostas/**").hasAuthority("SCOPE_proposta")
+                .mvcMatchers(HttpMethod.GET, "/propostas/**").hasAuthority("SCOPE_proposta")
+                //.mvcMatchers(HttpMethod.GET, "/actuator/prometheus").permitAll()
+        )
 		.cors().and().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().csrf().disable()
 				.oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
