@@ -89,4 +89,6 @@ public class Proposta {
 		this.cartao = cartao;
 	}
 
+	
+
 }
