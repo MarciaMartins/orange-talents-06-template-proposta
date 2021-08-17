@@ -22,7 +22,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .mvcMatchers(HttpMethod.POST, "/biometrias/**").hasAuthority("SCOPE_proposta")
                 .mvcMatchers(HttpMethod.POST, "/propostas/**").hasAuthority("SCOPE_proposta")
                 .mvcMatchers(HttpMethod.GET, "/propostas/**").hasAuthority("SCOPE_proposta")
-                //.mvcMatchers(HttpMethod.GET, "/actuator/prometheus").permitAll()
+                .mvcMatchers(HttpMethod.GET, "/actuator/prometheus").permitAll()
         )
 		.cors().and().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().csrf().disable()
