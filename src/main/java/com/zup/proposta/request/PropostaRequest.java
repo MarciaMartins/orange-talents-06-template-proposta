@@ -8,11 +8,12 @@ import javax.validation.constraints.Positive;
 
 import com.sun.istack.NotNull;
 import com.zup.proposta.modelo.Proposta;
+import com.zup.proposta.validation.CpfCnpj;
 import com.zup.proposta.validation.ValorUnico;
 
 public class PropostaRequest {
 	@NotBlank 
-	//@CpfCnpj
+	@CpfCnpj
 	@ValorUnico(domainClass = Proposta.class, fieldName = "documento", message = "Proposta existente para este documento")
 	private String documento;
 	@NotBlank @Email 

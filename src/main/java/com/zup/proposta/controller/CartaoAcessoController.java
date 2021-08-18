@@ -8,29 +8,35 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.zup.proposta.controller.validation.AtualizaBloqueioComponent;
 import com.zup.proposta.controller.validation.RecuperaPropostaBiometria;
+import com.zup.proposta.feignCliente.AccountsController;
 import com.zup.proposta.feignCliente.dto.CartaoBloqueio;
 import com.zup.proposta.modelo.Bloqueio;
 import com.zup.proposta.modelo.Proposta;
 import com.zup.proposta.response.BloqueioResponse;
+import com.zup.proposta.response.CartaoResponseNumero;
 
-//@RestController
+@RestController
 @RequestMapping("/cartoes")
 public class CartaoAcessoController {
 
 	@Autowired
-
 	private RecuperaPropostaBiometria recuperaPropostaBiometria;
 
 	@Autowired
 	private AtualizaBloqueioComponent atualizaBloqueio;
+	
+	@Autowired
+	private AccountsController accountsController;
 
 	@PostMapping("/{idCartao}")
 	public ResponseEntity<?> cadastrar(@PathVariable String idCartao, @RequestBody @Valid CartaoBloqueio bloqueio,
@@ -77,6 +83,12 @@ public class CartaoAcessoController {
 		}
 
 		return ipAddress;
+	}
+	
+	@GetMapping("/{idProposta}")
+	public CartaoResponseNumero recuperaNumeroCartao(@PathVariable String idProposta) {
+		CartaoResponseNumero numeroCartao = accountsController.getNumeroCartao(idProposta);
+		return numeroCartao;
 	}
 
 }
